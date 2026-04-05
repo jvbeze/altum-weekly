@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Altum Weekly</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;background:linear-gradient(160deg,#0d1117,#141a26);min-height:100vh;display:flex;align-items:center;justify-content:center;color:#f1ebda}
+.card{background:rgba(20,26,38,.96);border:1px solid rgba(191,146,100,.22);border-radius:8px;max-width:520px;width:90%;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.7)}
+.header{background:rgba(191,146,100,.07);border-bottom:1px solid rgba(191,146,100,.15);padding:20px 28px;display:flex;align-items:center}
+.logo{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#bf9264;font-family:sans-serif}
+.logo-sub{font-size:8px;letter-spacing:.28em;color:rgba(191,146,100,.4);margin-top:3px;font-family:sans-serif}
+.badge{margin-left:auto;font-size:9px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(191,146,100,.25);color:rgba(191,146,100,.55);padding:4px 10px;border-radius:3px;font-family:sans-serif}
+.body{padding:32px 28px}
+h1{font-size:28px;color:#f1ebda;margin-bottom:8px}
+.sub{font-size:14px;color:#8a8fa8;margin-bottom:28px;line-height:1.6}
+.info-box{background:rgba(191,146,100,.06);border:1px solid rgba(191,146,100,.15);border-radius:4px;padding:16px 20px;margin-bottom:20px}
+.info-box h3{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(191,146,100,.5);font-family:sans-serif;margin-bottom:8px}
+.info-box p{font-size:15px;color:#f1ebda;line-height:1.6}
+.steps{list-style:none;counter-reset:step}
+.steps li{counter-increment:step;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;color:#8a8fa8;font-family:sans-serif;line-height:1.6}
+.steps li::before{content:counter(step);display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:#bf9264;color:#0d1117;border-radius:50%;font-size:11px;font-weight:700;margin-right:12px}
+.steps li:last-child{border-bottom:none}
+.steps li strong{color:#f1ebda}
+.footer-note{margin-top:20px;font-size:11px;color:rgba(191,146,100,.4);font-family:sans-serif;text-align:center}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <div>
+      <div class="logo">Altum Capital</div>
+      <div class="logo-sub">Gestao de Patrimonio</div>
+    </div>
+    <div class="badge">Weekly</div>
+  </div>
+  <div class="body">
+    <h1>Altum Weekly</h1>
+    <p class="sub">Reuniao de segunda-feira - 09:30 a 10:20 - 4 blocos - 50 minutos</p>
+    <div class="info-box">
+      <h3>Como gerar a apresentacao</h3>
+      <p>Abra o <strong>Claude</strong> no projeto <strong>Altum Weekly</strong> e peca:<br>
+      <em style="color:#bf9264">"Gerar o PPTX da weekly de amanha"</em></p>
+    </div>
+    <ol class="steps">
+      <li><strong>Abra o Claude</strong> - projeto "Altum Weekly"</li>
+      <li><strong>Peca a apresentacao</strong> - Claude puxa dados ao vivo do Notion</li>
+      <li><strong>Baixe o PPTX</strong> - pronto em segundos com macro, KPIs e pipeline</li>
+      <li><strong>Abra na TV</strong> - F11 para tela cheia, apresente ao time</li>
+    </ol>
+    <p class="footer-note">Gerado automaticamente via AltumOS</p>
+  </div>
+</div>
+</body>
+</html>
