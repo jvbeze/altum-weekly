@@ -2,55 +2,244 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Altum Weekly</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Altum Weekly — 06 abril 2026</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Georgia,'Times New Roman',serif;background:linear-gradient(160deg,#0d1117,#141a26);min-height:100vh;display:flex;align-items:center;justify-content:center;color:#f1ebda}
-.card{background:rgba(20,26,38,.96);border:1px solid rgba(191,146,100,.22);border-radius:8px;max-width:520px;width:90%;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.7)}
-.header{background:rgba(191,146,100,.07);border-bottom:1px solid rgba(191,146,100,.15);padding:20px 28px;display:flex;align-items:center}
-.logo{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#bf9264;font-family:sans-serif}
-.logo-sub{font-size:8px;letter-spacing:.28em;color:rgba(191,146,100,.4);margin-top:3px;font-family:sans-serif}
-.badge{margin-left:auto;font-size:9px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(191,146,100,.25);color:rgba(191,146,100,.55);padding:4px 10px;border-radius:3px;font-family:sans-serif}
-.body{padding:32px 28px}
-h1{font-size:28px;color:#f1ebda;margin-bottom:8px}
-.sub{font-size:14px;color:#8a8fa8;margin-bottom:28px;line-height:1.6}
-.info-box{background:rgba(191,146,100,.06);border:1px solid rgba(191,146,100,.15);border-radius:4px;padding:16px 20px;margin-bottom:20px}
-.info-box h3{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(191,146,100,.5);font-family:sans-serif;margin-bottom:8px}
-.info-box p{font-size:15px;color:#f1ebda;line-height:1.6}
-.steps{list-style:none;counter-reset:step}
-.steps li{counter-increment:step;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;color:#8a8fa8;font-family:sans-serif;line-height:1.6}
-.steps li::before{content:counter(step);display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:#bf9264;color:#0d1117;border-radius:50%;font-size:11px;font-weight:700;margin-right:12px}
-.steps li:last-child{border-bottom:none}
-.steps li strong{color:#f1ebda}
-.footer-note{margin-top:20px;font-size:11px;color:rgba(191,146,100,.4);font-family:sans-serif;text-align:center}
+:root{--bg:#141A28;--card:#1C2235;--card2:#202231;--gold:#BF9264;--ivory:#F1EBDA;--white:#fff;--muted:#8A8FA8;--green:#4CAF7D;--red:#E05A5A;--yellow:#F0B429;--blue:#4A90D9;--purple:#9B59B6;--pink:#E91E63;--teal:#1A9A8E}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--ivory);overflow:hidden}
+.slide{display:none;width:100vw;height:100vh;padding:40px 50px;position:relative;flex-direction:column}
+.slide.active{display:flex}
+.gold-bar{position:absolute;left:0;top:0;width:6px;height:100%;background:var(--gold)}
+.tag{font-size:12px;color:var(--gold);letter-spacing:5px;font-family:sans-serif;margin-bottom:4px}
+.slide-title{font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--ivory);margin-bottom:20px}
+.kpi-row{display:flex;gap:16px;margin:16px 0}
+.kpi{background:var(--card2);border:1px solid #2A3050;padding:14px;flex:1;text-align:center;border-radius:4px}
+.kpi-val{font-size:clamp(28px,4vw,48px);font-weight:700;font-family:sans-serif}
+.kpi-lbl{font-size:13px;color:var(--muted);font-family:sans-serif;margin-top:6px}
+.bar-row{display:flex;align-items:center;gap:10px;margin:4px 0}
+.bar{height:28px;border-radius:2px;display:flex;align-items:center;padding-left:10px;font-size:12px;color:var(--ivory);font-family:sans-serif;min-width:30px}
+.bar-num{font-size:15px;font-weight:700;font-family:sans-serif;min-width:30px}
+.section-label{font-size:11px;color:var(--gold);letter-spacing:4px;font-family:sans-serif;margin:18px 0 10px}
+table{width:100%;border-collapse:collapse;font-family:sans-serif}
+th{background:var(--gold);color:#0D1117;font-size:12px;padding:8px 10px;text-align:left;font-weight:700}
+td{padding:7px 10px;font-size:12px;color:var(--ivory);border-bottom:1px solid #2A3050}
+tr:nth-child(even){background:var(--card)}
+tr:nth-child(odd){background:var(--card2)}
+.headline{background:var(--card);border-left:4px solid var(--gold);padding:10px 16px;margin:6px 0;border-radius:0 4px 4px 0}
+.headline h3{font-size:16px;color:var(--ivory);margin-bottom:4px}
+.headline p{font-size:12px;color:var(--muted);font-family:sans-serif}
+.footer{position:absolute;bottom:0;left:0;right:0;background:#0D1117;padding:10px 50px;font-size:9px;color:#3A4060;letter-spacing:3px;font-family:sans-serif}
+.panel-right{position:absolute;right:0;top:0;width:30%;height:100%;background:#1A2138}
+.nav{position:fixed;bottom:20px;right:20px;display:flex;gap:8px;z-index:100}
+.nav button{background:var(--gold);color:#0D1117;border:none;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;font-weight:700}
+.nav button:hover{opacity:.8}
+.nav-count{color:var(--muted);font-size:12px;font-family:sans-serif;align-self:center;margin:0 8px}
+.two-col{display:flex;gap:20px;flex:1}
+.col{flex:1}
+.vert-card{background:var(--card2);border:1px solid #2A3050;border-left:4px solid var(--blue);padding:14px 16px;margin:8px 0;border-radius:0 4px 4px 0}
+.vert-card h3{font-size:16px;color:var(--ivory);margin-bottom:4px}
+.vert-card p{font-size:12px;color:var(--muted);font-family:sans-serif}
+.impact{background:var(--card);padding:10px 16px;margin:6px 0;border-radius:0 4px 4px 0}
+.impact h3{font-size:14px;margin-bottom:3px}
+.impact p{font-size:11px;color:var(--muted);font-family:sans-serif}
+.action-table td{font-size:11px}
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="header">
-    <div>
-      <div class="logo">Altum Capital</div>
-      <div class="logo-sub">Gestao de Patrimonio</div>
-    </div>
-    <div class="badge">Weekly</div>
-  </div>
-  <div class="body">
-    <h1>Altum Weekly</h1>
-    <p class="sub">Reuniao de segunda-feira - 09:30 a 10:20 - 4 blocos - 50 minutos</p>
-    <div class="info-box">
-      <h3>Como gerar a apresentacao</h3>
-      <p>Abra o <strong>Claude</strong> no projeto <strong>Altum Weekly</strong> e peca:<br>
-      <em style="color:#bf9264">"Gerar o PPTX da weekly de amanha"</em></p>
-    </div>
-    <ol class="steps">
-      <li><strong>Abra o Claude</strong> - projeto "Altum Weekly"</li>
-      <li><strong>Peca a apresentacao</strong> - Claude puxa dados ao vivo do Notion</li>
-      <li><strong>Baixe o PPTX</strong> - pronto em segundos com macro, KPIs e pipeline</li>
-      <li><strong>Abra na TV</strong> - F11 para tela cheia, apresente ao time</li>
-    </ol>
-    <p class="footer-note">Gerado automaticamente via AltumOS</p>
-  </div>
+
+<div class="slide active" id="s1">
+<div class="gold-bar"></div>
+<div class="panel-right"></div>
+<div style="margin-top:8%">
+<div style="font-size:14px;color:var(--gold);letter-spacing:10px;font-family:sans-serif;font-weight:700">ALTUM CAPITAL</div>
+<div style="font-size:9px;color:var(--muted);letter-spacing:6px;font-family:sans-serif;margin-top:4px">GESTAO DE PATRIMONIO</div>
+<div style="font-size:clamp(40px,7vw,72px);font-weight:700;color:var(--white);margin-top:30px;line-height:1">ALTUM<br>WEEKLY</div>
+<div style="font-size:clamp(16px,2.5vw,24px);color:var(--gold);font-style:italic;margin-top:16px">Reuniao de Segunda-Feira</div>
+<div style="font-size:16px;color:var(--muted);margin-top:12px;font-family:sans-serif">06 de abril de 2026</div>
 </div>
+<div style="position:absolute;right:6%;top:15%;text-align:center">
+<div style="font-size:42px;font-weight:700;color:var(--green);font-family:sans-serif">R$ 505MM</div>
+<div style="font-size:12px;color:var(--muted);font-family:sans-serif">AUM Total (+12% sem.)</div>
+<div style="font-size:42px;font-weight:700;color:var(--gold);font-family:sans-serif;margin-top:40px">35+</div>
+<div style="font-size:12px;color:var(--muted);font-family:sans-serif">Leads Ativos</div>
+<div style="font-size:42px;font-weight:700;color:var(--yellow);font-family:sans-serif;margin-top:40px">72%</div>
+<div style="font-size:12px;color:var(--muted);font-family:sans-serif">Meta R$700MM</div>
+</div>
+<div style="position:absolute;bottom:0;left:0;right:0;background:#0D1117;padding:14px 50px;font-size:11px;color:var(--muted);letter-spacing:4px;font-family:sans-serif">09:30 — 10:20 | 4 BLOCOS | 50 MINUTOS</div>
+</div>
+
+<div class="slide" id="s2">
+<div class="gold-bar"></div>
+<div class="tag">01</div>
+<div class="slide-title">Macro & Mercado da Semana</div>
+<div class="kpi-row">
+<div class="kpi"><div class="kpi-val" style="color:var(--green)">181.557</div><div class="kpi-lbl">IBOVESPA +3,03%</div></div>
+<div class="kpi"><div class="kpi-val" style="color:var(--green)">R$ 5,24</div><div class="kpi-lbl">DOLAR Queda</div></div>
+<div class="kpi"><div class="kpi-val" style="color:var(--blue)">14,75%</div><div class="kpi-lbl">SELIC Corte 0,25pp</div></div>
+<div class="kpi"><div class="kpi-val" style="color:var(--red)">US$ 120</div><div class="kpi-lbl">PETROLEO Guerra</div></div>
+</div>
+<div class="two-col">
+<div class="col">
+<div class="section-label">O QUE ACONTECEU</div>
+<div class="headline"><h3>Guerra EUA/Israel x Ira escala</h3><p>Estreito de Ormuz ameacado. Petroleo US$120.</p></div>
+<div class="headline"><h3>COPOM cortou SELIC para 14,75%</h3><p>1o corte em 2 anos. Focus: 12,25% fim 2026.</p></div>
+<div class="headline"><h3>IPCA-15 mar: 0,44% (acima esperado)</h3><p>12 meses 3,9%. Alimentos e passagens.</p></div>
+<div class="headline"><h3>Ibovespa +3% - 1a semana positiva</h3><p>Fluxo estrangeiro +R$41bi no ano.</p></div>
+<div class="headline"><h3>Desemprego subiu para 5,8%</h3><p>Mercado trabalho desacelerando.</p></div>
+</div>
+<div class="col">
+<div class="section-label">IMPACTO PARA NOSSOS CLIENTES</div>
+<div class="impact" style="border-left:4px solid var(--green)"><h3 style="color:var(--green)">RF Pre-fixada: REBALANCEAR</h3><p>SELIC caindo, pre-fixados ganham. Revisar clientes conservadores.</p></div>
+<div class="impact" style="border-left:4px solid var(--blue)"><h3 style="color:var(--blue)">Dolar: MONITORAR</h3><p>Queda favorece repatriacao. Offshore e cambio no radar.</p></div>
+<div class="impact" style="border-left:4px solid var(--red)"><h3 style="color:var(--red)">Energia: EVITAR exposicao direta</h3><p>Petroleo instavel. Nao aumentar posicao.</p></div>
+<div class="impact" style="border-left:4px solid var(--green)"><h3 style="color:var(--green)">Dividendos: OPORTUNIDADE</h3><p>Pagadoras ficam atrativas com queda de juros.</p></div>
+</div>
+</div>
+<div class="footer">ALTUM WEEKLY | 06/ABR/2026 | CONFIDENCIAL</div>
+</div>
+
+<div class="slide" id="s3">
+<div class="gold-bar"></div>
+<div class="tag">KPI</div>
+<div class="slide-title">Painel de Gestao</div>
+<div class="two-col">
+<div class="col">
+<div class="kpi" style="border:1px solid var(--gold);margin-bottom:12px"><div class="kpi-val" style="color:var(--gold)">R$ 505,0MM</div><div class="kpi-lbl">AUM Total | 100 clientes | Meta 72,1%</div></div>
+<div style="background:var(--card);border:1px solid var(--green);padding:8px 14px;border-radius:4px;font-family:sans-serif;font-size:14px;color:var(--green);font-weight:700;margin-bottom:14px;text-align:center">+R$ 55,2MM vs. semana anterior</div>
+<div class="section-label">AUM POR ASSESSOR</div>
+<div class="bar-row"><span style="width:110px;font-size:13px;font-weight:700">JVB</span><div class="bar" style="background:var(--gold);width:55%">R$ 276MM</div><span class="bar-num" style="color:var(--gold)">54,7%</span></div>
+<div class="bar-row"><span style="width:110px;font-size:13px;font-weight:700">Alexandre</span><div class="bar" style="background:var(--blue);width:44%">R$ 203MM</div><span class="bar-num" style="color:var(--blue)">40,2%</span></div>
+<div class="bar-row"><span style="width:110px;font-size:13px;font-weight:700">Andre C.</span><div class="bar" style="background:var(--teal);width:5%"></div><span class="bar-num" style="color:var(--teal)">R$13MM</span></div>
+<div style="font-family:sans-serif;font-size:11px;color:var(--muted);margin-top:6px">Guilherme R$6,7MM | Gabriel R$4,8MM | Cadu R$1,1MM</div>
+<div style="background:#2A1515;border:1px solid var(--red);padding:8px 12px;border-radius:4px;font-size:11px;color:var(--red);font-family:sans-serif;margin-top:10px">ALERTA: Top 2 clientes = 38% AUM (FECOM R$139MM + FINATEC R$58MM)</div>
+</div>
+<div class="col">
+<div class="section-label">PIPELINE DE LEADS</div>
+<div class="kpi-row" style="margin:0 0 10px">
+<div class="kpi"><div class="kpi-val" style="color:var(--gold)">35+</div><div class="kpi-lbl">Ativos</div></div>
+<div class="kpi"><div class="kpi-val" style="color:var(--red)">12+</div><div class="kpi-lbl">Follow-ups Atrasados</div></div>
+<div class="kpi"><div class="kpi-val" style="color:var(--green)">7</div><div class="kpi-lbl">Novos (7d)</div></div>
+</div>
+<div class="section-label">TOP LEADS POR RESPONSAVEL</div>
+<div class="bar-row"><div class="bar" style="background:var(--pink);width:75%">Duda</div><span class="bar-num" style="color:var(--pink)">18</span></div>
+<div class="bar-row"><div class="bar" style="background:var(--gold);width:22%">JVB</div><span class="bar-num" style="color:var(--gold)">5</span></div>
+<div class="bar-row"><div class="bar" style="background:var(--blue);width:13%">Pedro</div><span class="bar-num" style="color:var(--blue)">3</span></div>
+<div class="section-label">LEADS POR VERTICAL</div>
+<div class="bar-row"><div class="bar" style="background:var(--purple);width:55%">IB</div><span class="bar-num" style="color:var(--purple)">14</span></div>
+<div class="bar-row"><div class="bar" style="background:var(--blue);width:50%">Wealth</div><span class="bar-num" style="color:var(--blue)">13</span></div>
+<div class="bar-row"><div class="bar" style="background:var(--teal);width:15%">Credito</div><span class="bar-num" style="color:var(--teal)">4</span></div>
+</div>
+</div>
+<div class="footer">ALTUM WEEKLY | 06/ABR/2026 | CONFIDENCIAL</div>
+</div>
+
+<div class="slide" id="s4">
+<div class="gold-bar"></div>
+<div class="tag">02</div>
+<div class="slide-title">Pipeline - Quem precisa de acao?</div>
+<div class="two-col" style="margin-bottom:10px">
+<div class="col">
+<div class="section-label">FUNIL</div>
+<div class="bar-row"><div class="bar" style="background:var(--yellow);width:70%">Lead</div><span class="bar-num" style="color:var(--yellow)">10</span></div>
+<div class="bar-row"><div class="bar" style="background:#F0A429;width:100%">1o Contato</div><span class="bar-num" style="color:#F0A429">14</span></div>
+<div class="bar-row"><div class="bar" style="background:var(--blue);width:35%">Diagnostico</div><span class="bar-num" style="color:var(--blue)">5</span></div>
+<div class="bar-row"><div class="bar" style="background:var(--purple);width:21%">Proposta</div><span class="bar-num" style="color:var(--purple)">3</span></div>
+<div class="bar-row"><div class="bar" style="background:var(--pink);width:21%">Negociacao</div><span class="bar-num" style="color:var(--pink)">3</span></div>
+</div>
+<div class="col">
+<div class="section-label" style="color:var(--teal)">7 NOVOS LEADS RPPS</div>
+<div style="background:var(--card);border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 4px 4px 0;font-family:sans-serif;font-size:12px;line-height:1.8">
+GOIASPREV (GO) | APARECIDAPREV (GO) | GOIANIAPREV (GO)<br>CUIABAPREV (MT) | AMONTADAPREV (PE) | GOIANAPREVI (PE)<br>FPM Montes Claros (GO)<br>
+<span style="color:var(--muted);font-size:10px;font-style:italic">Resp: Duda | Vertical: Wealth</span>
+</div>
+</div>
+</div>
+<div class="section-label" style="color:var(--red)">ACOES URGENTES - DISCUTIR AGORA</div>
+<table class="action-table">
+<tr><th>Lead</th><th>Etapa</th><th>Resp.</th><th>Acao / Pergunta para reuniao</th></tr>
+<tr><td><strong>Hospital Sta. Marta</strong></td><td style="color:var(--yellow)">1o Contato</td><td>JVB</td><td>NDA enviado - cobrar retorno. Agendar reuniao?</td></tr>
+<tr><td><strong>Guilherme Velo</strong></td><td style="color:var(--yellow)">1o Contato</td><td>Duda</td><td style="color:var(--red)">Follow-up 01/abr ATRASADO. Ligar HOJE.</td></tr>
+<tr><td><strong>Angelo Bimbato</strong></td><td style="color:var(--pink)">Negociacao</td><td>Duda</td><td>Negociacao avancada - proximo passo concreto?</td></tr>
+<tr><td><strong>Joao Lucas</strong></td><td style="color:var(--pink)">Negociacao</td><td>Duda</td><td>Aguardando assinatura contrato. Status?</td></tr>
+<tr><td><strong>Andre Portella</strong></td><td style="color:var(--purple)">Proposta</td><td>Duda</td><td>Aguardando retorno p/ 2a apresentacao.</td></tr>
+<tr><td><strong>12+ follow-ups atrasados</strong></td><td style="color:var(--red)">Varios</td><td>TIME</td><td style="color:var(--red)">Cada um verifica os seus no Notion AGORA.</td></tr>
+</table>
+<div class="footer">ALTUM WEEKLY | 06/ABR/2026 | CONFIDENCIAL</div>
+</div>
+
+<div class="slide" id="s5">
+<div class="gold-bar"></div>
+<div class="tag">03</div>
+<div class="slide-title">Mural de Accountability</div>
+<p style="font-size:13px;color:var(--muted);font-style:italic;margin-bottom:12px">Quem esta entregando? Quem esta travado? Resolver agora.</p>
+<div class="section-label" style="color:var(--red)">TAREFAS CRITICAS</div>
+<table>
+<tr><th>Tarefa</th><th>Resp.</th><th>Prazo</th><th>Status</th><th>Pergunta</th></tr>
+<tr style="border-left:4px solid var(--red)"><td>Revisitar cronograma Bay Harbour</td><td>JVB</td><td>31/mar</td><td style="color:var(--red);font-weight:700">ATRASADA</td><td style="color:var(--gold);font-style:italic">Qual o blocker?</td></tr>
+<tr><td>Criar apresentacao Bay Harbour</td><td>JVB</td><td>-</td><td style="color:var(--yellow)">A Fazer</td><td style="color:var(--gold);font-style:italic">Quando entrega?</td></tr>
+<tr><td>Enviar modelo Societario ECAP</td><td>JVB</td><td>-</td><td style="color:var(--yellow)">A Fazer</td><td style="color:var(--gold);font-style:italic">Quando entrega?</td></tr>
+<tr><td>Minuta Term Sheet Fiagro</td><td>JVB</td><td>-</td><td style="color:var(--yellow)">A Fazer</td><td style="color:var(--gold);font-style:italic">Quando entrega?</td></tr>
+<tr><td>Parceria comercial Blue 3</td><td>Lucas</td><td>-</td><td style="color:var(--yellow)">Em andamento</td><td style="color:var(--gold);font-style:italic">Quando entrega?</td></tr>
+<tr style="border-left:4px solid var(--red)"><td>Planejamento redes sociais</td><td>Anna</td><td>26/mar</td><td style="color:var(--red);font-weight:700">ATRASADA</td><td style="color:var(--gold);font-style:italic">Qual o blocker?</td></tr>
+</table>
+<div class="section-label">PROJETOS - STATUS RAPIDO</div>
+<table>
+<tr><th>Projeto</th><th>Resp.</th><th>Tasks</th><th>Proximo passo / Blocker</th></tr>
+<tr><td>ECAP Urbanismo</td><td>JVB</td><td style="color:var(--gold);font-weight:700">11</td><td style="font-style:italic;color:var(--gold)">Modelo societario. Prazo?</td></tr>
+<tr><td>Bay Harbor Islands</td><td>JVB</td><td>2</td><td style="font-style:italic;color:var(--red)">Cronograma ATRASADO. Parceiros?</td></tr>
+<tr><td>Mar Azul (BlueFit)</td><td>JVB</td><td>4</td><td style="font-style:italic;color:var(--gold)">Mubadala pending. Cobrar?</td></tr>
+<tr><td>Altum Credito</td><td>Lucas</td><td style="color:var(--gold);font-weight:700">8</td><td style="font-style:italic;color:var(--gold)">Business plan. Quando fecha?</td></tr>
+<tr><td>Sprint Aceleracao</td><td>JVB</td><td style="color:var(--gold);font-weight:700">12</td><td style="font-style:italic;color:var(--red)">Prazo 22/mar - encerrado ou prorrogado?</td></tr>
+</table>
+<div class="footer">ALTUM WEEKLY | 06/ABR/2026 | CONFIDENCIAL</div>
+</div>
+
+<div class="slide" id="s6">
+<div class="gold-bar"></div>
+<div class="tag">04</div>
+<div class="slide-title">Foco da Semana - 06 a 10 de abril</div>
+<p style="font-size:13px;color:var(--red);font-weight:700;margin-bottom:14px">DECISOES A TOMAR AGORA (registrar no Notion com dono e prazo)</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+<div class="vert-card" style="border-left-color:var(--blue)"><h3>Wealth Management</h3><p>1. Ligar para 12+ follow-ups atrasados HOJE<br>2. RPPS: cadencia de contato p/ 7 leads<br>3. Rebalancear carteiras RF pre-fixada<br>4. Plano p/ reduzir concentracao FECOM/FINATEC</p></div>
+<div class="vert-card" style="border-left-color:var(--purple)"><h3>Investment Banking</h3><p>1. ECAP: modelo societario - prazo?<br>2. Bay Harbour: cronograma + apresentacao<br>3. Fiagro: minuta term sheet - quem redige?<br>4. Mar Azul: cobrar Mubadala</p></div>
+<div class="vert-card" style="border-left-color:var(--teal)"><h3>Seguros & Credito</h3><p>1. Blue 3: fechar parceria (Lucas)<br>2. Altum Credito: business plan + fluxograma<br>3. Pesquisar duplicatas risco-retorno<br>4. Tese consorcios: entrar em contato</p></div>
+<div class="vert-card" style="border-left-color:var(--gold)"><h3>Operacional & MKT</h3><p>1. Redes sociais: Anna entregar planejamento<br>2. AltumOS: links Drive nos projetos<br>3. Sprint Aceleracao: encerrar ou prorrogar?<br>4. Reunioes: registrar todas no Notion</p></div>
+</div>
+<div class="footer">ALTUM WEEKLY | 06/ABR/2026 | CONFIDENCIAL</div>
+</div>
+
+<div class="slide" id="s7">
+<div class="gold-bar"></div>
+<div class="panel-right"></div>
+<div style="margin-top:14%">
+<div style="font-size:14px;color:var(--gold);letter-spacing:10px;font-family:sans-serif;font-weight:700">ALTUM CAPITAL</div>
+<div style="font-size:clamp(28px,4.5vw,42px);font-weight:700;color:var(--white);margin-top:24px;line-height:1.25;max-width:65%">Toda decisao tomada hoje sai com dono e prazo no Notion.</div>
+<div style="font-size:clamp(16px,2vw,22px);color:var(--gold);font-style:italic;margin-top:20px">Se nao esta no Notion, nao existe.</div>
+<div style="font-size:11px;color:#3A4060;margin-top:60px;font-family:sans-serif">Gerado via AltumOS em 05 de abril 2026</div>
+</div>
+<div style="position:absolute;right:6%;top:22%;display:flex;flex-direction:column;gap:12px">
+<div style="background:var(--gold);color:#0D1117;padding:10px 28px;border-radius:4px;font-size:13px;font-weight:700;font-family:sans-serif;text-align:center">AUM R$505MM</div>
+<div style="background:var(--gold);color:#0D1117;padding:10px 28px;border-radius:4px;font-size:13px;font-weight:700;font-family:sans-serif;text-align:center;opacity:.85">Pipeline 35+</div>
+<div style="background:var(--gold);color:#0D1117;padding:10px 28px;border-radius:4px;font-size:13px;font-weight:700;font-family:sans-serif;text-align:center;opacity:.7">Bay Harbour</div>
+<div style="background:var(--gold);color:#0D1117;padding:10px 28px;border-radius:4px;font-size:13px;font-weight:700;font-family:sans-serif;text-align:center;opacity:.55">ECAP</div>
+<div style="background:var(--gold);color:#0D1117;padding:10px 28px;border-radius:4px;font-size:13px;font-weight:700;font-family:sans-serif;text-align:center;opacity:.4">Fiagro</div>
+<div style="background:var(--gold);color:#0D1117;padding:10px 28px;border-radius:4px;font-size:13px;font-weight:700;font-family:sans-serif;text-align:center;opacity:.25">RPPS</div>
+</div>
+</div>
+
+<div class="nav">
+<button onclick="go(-1)">&#8592;</button>
+<span class="nav-count" id="counter">1/7</span>
+<button onclick="go(1)">&#8594;</button>
+</div>
+
+<script>
+let cur=0;const slides=document.querySelectorAll('.slide'),total=slides.length;
+function show(n){slides.forEach(s=>s.classList.remove('active'));slides[n].classList.add('active');document.getElementById('counter').textContent=(n+1)+'/'+total}
+function go(d){cur=Math.max(0,Math.min(total-1,cur+d));show(cur)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')go(1);if(e.key==='ArrowLeft')go(-1);if(e.key==='f'||e.key==='F11'){e.preventDefault();document.documentElement.requestFullscreen?.()}});
+show(0);
+</script>
 </body>
 </html>
